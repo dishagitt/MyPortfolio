@@ -24,8 +24,9 @@ This is my personal portfolio website showcasing my projects, skills, and experi
 
 To run the project locally:
 
+``` 
 # Clone the repo
-git clone https://github.com/your-username/portfolio.git  
+git clone https://github.com/dishagitt/MyPortfolio/  
 
 # Open project folder
 cd portfolio  
@@ -35,6 +36,7 @@ npm install
 
 # Run project
 npm start  
+```
 
 📧 Contact
 

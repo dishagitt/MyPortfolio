@@ -2,7 +2,7 @@
 📌 Overview
 This is my personal portfolio website showcasing my projects, skills, and experience as a Fullstack Developer. The website highlights my journey, technical expertise, and serves as a way for recruiters and collaborators to connect with me.
 
-🚀 Features
+## 🚀 Features
 
 * Responsive Design – Works seamlessly on desktop, tablet, and mobile.
 
@@ -16,13 +16,13 @@ This is my personal portfolio website showcasing my projects, skills, and experi
 
 * Smooth Navigation – User-friendly UI/UX with animations.
 
-🛠️ Tech Stack
+
+## 🛠️ Tech Stack
 
 * Frontend: HTML5, CSS3, JavaScript
 
-## 📂 Installation & Setup
 
-### 📂 Run Locally
+## 📂 Installation & Setup to Run Locally
 
 ### 1. Clone the repository
 ```bash
@@ -40,7 +40,7 @@ cd MyPortfolio
 - Your website will load locally without any server or additional dependencies.
 
 
-# 📧 Contact
+## 📧 Contact
 
 If you’d like to connect or collaborate:
 

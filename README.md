@@ -1,4 +1,4 @@
-🌐 My Portfolio Website
+# 🌐 My Portfolio Website
 📌 Overview
 This is my personal portfolio website showcasing my projects, skills, and experience as a Fullstack Developer. The website highlights my journey, technical expertise, and serves as a way for recruiters and collaborators to connect with me.
 
@@ -20,25 +20,27 @@ This is my personal portfolio website showcasing my projects, skills, and experi
 
 * Frontend: HTML5, CSS3, JavaScript
 
-📂 Installation & Setup
+## 📂 Installation & Setup
 
-To run the project locally:
+### 📂 Run Locally
 
-``` 
-# Clone the repo
-git clone https://github.com/dishagitt/MyPortfolio/  
-
-# Open project folder
-cd portfolio  
-
-# If using npm for dependencies
-npm install  
-
-# Run project
-npm start  
+### 1. Clone the repository
+```bash
+git clone https://github.com/dishagitt/MyPortfolio.git
 ```
 
-📧 Contact
+### 2. Open the project folder
+```bash
+cd MyPortfolio
+```
+
+### 3. Open `index.html` in your browser
+- Double-click `index.html` **or**  
+- Right-click → **Open with → Browser**  
+- Your website will load locally without any server or additional dependencies.
+
+
+# 📧 Contact
 
 If you’d like to connect or collaborate:
 

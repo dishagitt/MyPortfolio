@@ -141,7 +141,7 @@ header.scrolled .menu-toggle {
 /* ====================== */
 .hero {
   height: 100vh;
-  background: url(assets/files/hero_bg.jpg) center/cover no-repeat;
+  background: url(assets/files/hero-bg.jpg) repeat-x center center/cover;
   color: white;
   display: flex;
   flex-direction: column;
@@ -149,6 +149,16 @@ header.scrolled .menu-toggle {
   align-items: center;
   text-align: center;
   padding: 0 10%;
+    /* Animation for slow side movement */
+  animation: moveSideways 120s linear infinite;
+}
+@keyframes moveSideways {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 1000px 0;
+  }
 }
 .hero h1 {
   font-size: 3rem;
@@ -274,6 +284,20 @@ section h2 {
 .project-card:hover {
   transform: translateY(-6px);
   box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.project-card a{
+  background-color: #ff9100;
+  padding: 6px 10px;
+  border: 1px transparent;
+  border-radius: 5px;
+  text-decoration: none;
+  color: black;
+  margin-left: 17rem;
+}
+
+.project-card a:hover{
+  background-color: #f08801;
 }
 
 /* ====================== */
@@ -419,6 +443,8 @@ section h2 {
   color: #354088;
   font-size: 1.3rem;
 }
+
+
 
 /* ====================== */
 /* FOOTER                 */

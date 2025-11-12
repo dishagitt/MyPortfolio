@@ -15,6 +15,9 @@
   <header id="navbar">
     <nav class="navbar container">
       <div class="logo">MyPortfolio</div>
+      <div class="menu-toggle" id="menu-toggle">
+        <i class="fas fa-bars"></i>
+      </div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#about">About</a></li>
@@ -43,39 +46,40 @@
   <!-- ===== ABOUT SECTION ===== -->
   <section id="about" class="about">
     <div class="about-content">
-     <h2>About Me</h2>
-<p>
-  I’m <strong>Disha Prajapati</strong>, an <strong>MCA graduate</strong> who enjoys
-  building reliable, scalable web applications with a strong focus on the <strong>Python backend</strong>.
-  I work with frameworks like <strong>Flask</strong>, <strong>FastAPI</strong>, and <strong>Django</strong>,
-  design <strong>RESTful APIs</strong>, and implement secure authentication using
-  <strong>JWT/OAuth</strong>.
-</p>
+      <h2>About Me</h2>
+      <p>
+        I’m <strong>Disha Prajapati</strong>, an <strong>MCA graduate</strong> who enjoys
+        building reliable, scalable web applications with a strong focus on the <strong>Python backend</strong>.
+        I work with frameworks like <strong>Flask</strong>, <strong>FastAPI</strong>, and <strong>Django</strong>,
+        design <strong>RESTful APIs</strong>, and implement secure authentication using
+        <strong>JWT/OAuth</strong>.
+      </p>
 
-<p>
-  I’m comfortable across the stack—structuring data models in <strong>MySQL</strong>, <strong>PostgreSQL</strong> and <strong>SQLite</strong>
-  (with ORM tools like <strong>SQLAlchemy</strong>), and developing clean, responsive UIs with
-  <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>React</strong>,
-  <strong>Bootstrap</strong>, and <strong>Tailwind</strong>. I focus on writing modular, efficient,
-  and maintainable code while ensuring good performance and usability.
+      <p>
+        I’m comfortable across the stack—structuring data models in <strong>MySQL</strong>, <strong>PostgreSQL</strong>
+        and <strong>SQLite</strong>
+        (with ORM tools like <strong>SQLAlchemy</strong>), and developing clean, responsive UIs with
+        <strong>HTML</strong>, <strong>CSS</strong>, <strong>JavaScript</strong>, <strong>React</strong>,
+        <strong>Bootstrap</strong>, and <strong>Tailwind</strong>. I focus on writing modular, efficient,
+        and maintainable code while ensuring good performance and usability.
 
-  During my academic journey, I’ve developed several projects that strengthened my understanding of
-  <strong>API design, database architecture, and front-end integration</strong>.
-  
-</p>
+        During my academic journey, I’ve developed several projects that strengthened my understanding of
+        <strong>API design, database architecture, and front-end integration</strong>.
 
-<p>
-  Beyond technical development, I believe in <strong>collaboration and continuous growth</strong>.
-  I enjoy working in team environments where I can share ideas, learn from others, and contribute
-  to projects that have a meaningful impact. I also stay updated with modern development tools,
-  testing practices, and deployment workflows using platforms like <strong>GitHub</strong>,
-  <strong>Reddit</strong>, and <strong>Linkedin</strong>.
+      </p>
 
-  I enjoy transforming complex ideas into interactive, user-friendly solutions that
-  deliver real value to users, and I’m always
-  <strong>curious to learn new frameworks, tools, and design patterns</strong> that can help me
-  build better products and grow as a full-stack developer.
-</p>
+      <p>
+        Beyond technical development, I believe in <strong>collaboration and continuous growth</strong>.
+        I enjoy working in team environments where I can share ideas, learn from others, and contribute
+        to projects that have a meaningful impact. I also stay updated with modern development tools,
+        testing practices, and deployment workflows using platforms like <strong>GitHub</strong>,
+        <strong>Reddit</strong>, and <strong>Linkedin</strong>.
+
+        I enjoy transforming complex ideas into interactive, user-friendly solutions that
+        deliver real value to users, and I’m always
+        <strong>curious to learn new frameworks, tools, and design patterns</strong> that can help me
+        build better products and grow as a full-stack developer.
+      </p>
 
 
     </div>
@@ -241,34 +245,61 @@
   <footer>
     <p>&copy; 2025 Disha Prajapati | All Rights Reserved</p>
   </footer>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const navbar = document.getElementById("navbar");
+  const menuToggle = document.getElementById("menu-toggle");
+  const navLinks = document.querySelector(".nav-links");
 
-  <script>
-    window.addEventListener("scroll", function () {
-      const navbar = document.getElementById("navbar");
-      if (window.scrollY > 50) {
-        navbar.classList.remove("transparent");
-        navbar.classList.add("scrolled");
-      } else {
-        navbar.classList.remove("scrolled");
-        navbar.classList.add("transparent");
-      }
+  if (!navbar) return;
+
+  // Set header state depending on scroll position
+  const setNavState = () => {
+    if (window.scrollY > 50) {
+      navbar.classList.add("scrolled");
+      navbar.classList.remove("transparent");
+      if (menuToggle) menuToggle.classList.add("dark");
+    } else {
+      navbar.classList.remove("scrolled");
+      navbar.classList.add("transparent");
+      if (menuToggle) menuToggle.classList.remove("dark");
+    }
+  };
+
+  // Run on load (important for mobile reloads)
+  setNavState();
+
+  // Update on scroll, resize and orientation change
+  window.addEventListener("scroll", setNavState, { passive: true });
+  window.addEventListener("resize", setNavState);
+  window.addEventListener("orientationchange", setNavState);
+
+  // Toggle mobile menu
+  if (menuToggle && navLinks) {
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuToggle.classList.toggle("open");
+      // ensure visual state is recalculated
+      setTimeout(setNavState, 10);
     });
 
-    // set initial state
-    document.addEventListener("DOMContentLoaded", function () {
-      document.getElementById("navbar").classList.add("transparent");
-    });
-
-    // Smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-      anchor.addEventListener("click", function (e) {
+    // Close menu when clicking a nav item and recalc header state after scrollIntoView
+    navLinks.querySelectorAll("a[href^='#']").forEach(a => {
+      a.addEventListener("click", (e) => {
         e.preventDefault();
-        document.querySelector(this.getAttribute("href")).scrollIntoView({
-          behavior: "smooth",
-        });
+        const target = document.querySelector(a.getAttribute("href"));
+        if (target) target.scrollIntoView({ behavior: "smooth" });
+        navLinks.classList.remove("active");
+        menuToggle.classList.remove("open");
+        setTimeout(setNavState, 250);
       });
     });
-  </script>
+  }
+});
+</script>
+
+
+
 </body>
 
 </html>

@@ -287,13 +287,13 @@ section h2 {
 }
 
 .project-card a{
-  background-color: #ff9100;
+  background-color: #fbcf1d;
   padding: 6px 10px;
   border: 1px transparent;
   border-radius: 5px;
   text-decoration: none;
   color: black;
-  margin-left: 17rem;
+  margin-left: 5rem;
 }
 
 .project-card a:hover{
